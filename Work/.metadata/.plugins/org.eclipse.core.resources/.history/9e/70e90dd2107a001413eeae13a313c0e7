@@ -1,0 +1,52 @@
+package web.moviesuggest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import model.moviesuggest.Movie;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
+public class JsonParser {
+	
+	public static Movie parseMovie(String content)
+	{
+		
+		try {
+			JSONObject reader = new JSONObject(content);
+			//JSONArray ar = new JSONArray(content);
+			List<Movie.Movies> flowerList = new ArrayList<Movie.Movies>();
+			Movie movie =new Movie();
+			
+			
+			for (int i = 0; i < ar.length(); i++) {
+				
+				JSONObject obj = ar.getJSONObject(i);
+				Flower flower = new Flower();
+				
+				flower.setProductId(obj.getInt("productId"));
+				flower.setName(obj.getString("name"));
+				flower.setCategory(obj.getString("category"));
+				flower.setInstructions(obj.getString("instructions"));
+				flower.setPhoto(obj.getString("photo"));
+				flower.setPrice(obj.getDouble("price"));
+				
+				flowerList.add(flower);
+			}
+			
+			return flowerList;
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+        return;
+	}
+	
+
+}

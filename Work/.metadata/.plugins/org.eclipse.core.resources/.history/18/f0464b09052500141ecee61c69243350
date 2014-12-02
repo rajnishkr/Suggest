@@ -1,0 +1,34 @@
+package web.moviesuggest;
+
+import model.moviesuggest.Movie;
+import model.moviesuggest.Movies;
+
+import android.renderscript.Type;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
+public class JsonParser {
+	
+	public static Movies parseMovie(String JsonString)
+	{
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		Gson gson = gsonBuilder.create(); 
+	
+        Movie movie = new Movie();
+        movie = gson.fromJson(JsonString, Movie.class);
+        String moviesString=movie.getMovies();
+        Movies movies=new Movies();
+        movies = gson.fromJson(moviesString, Movies.class);
+        return movies;
+	}
+	
+	public static Movies parseMoviesInfo(String JsonString)
+	{
+		Gson gson = new Gson();       
+        Movies movies = gson.fromJson(JsonString, Movies.class);
+        return movies;
+	}
+
+}

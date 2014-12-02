@@ -1,0 +1,28 @@
+package web.moviesuggest;
+
+import model.moviesuggest.Movie;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
+public class JsonParser {
+	
+	public static Movie parseMovie(String JsonString)
+	{
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		Gson gson = gsonBuilder.create(); 
+	
+        Movie movie = new Movie();
+        movie = gson.fromJson(JsonString, Movie.class);
+        return movie;
+	}
+	
+	public static Movie.Movies parseMoviesInfo(String JsonString)
+	{
+		Gson gson = new Gson();       
+		Movie.Movies movies = gson.fromJson(JsonString, Movies.class);
+        return movies;
+	}
+
+}
