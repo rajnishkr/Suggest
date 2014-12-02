@@ -24,19 +24,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:ems="10"
-        android:text="Enter Movie Name" >
+        android:text="Enter Movie Name">
 
         <requestFocus />
     </EditText>
  
 
     
-      <TextView
+       <!-- <TextView
         android:id="@+id/textView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
-        android:text="" />
+        android:text="" /> -->
       
       <ProgressBar
         android:id="@+id/progressBar1"
@@ -44,5 +44,11 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="invisible" />
+      
+      <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
 
 </RelativeLayout>
