@@ -24,7 +24,7 @@ public class HttpRequest {
 			   
 			}
     	 urlString= urlString.replace("[query]", encodedQuery);
-    	 urlString=urlString.replace("[pagelimit]", "10");
+    	 urlString=urlString.replace("[pagelimit]", "5");
          URL url;
          HttpURLConnection urlConnection = null;
 		try {

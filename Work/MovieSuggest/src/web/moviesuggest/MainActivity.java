@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
+import com.google.gson.Gson;
+
 import model.moviesuggest.Movie;
 import model.moviesuggest.Movie.Movies;
 import model.moviesuggest.MovieAdapter;
@@ -155,7 +157,7 @@ public class MainActivity extends ListActivity  {
 	}
 	
 	protected void updateDisplay() {
-		
+		pb.setVisibility(View.VISIBLE);
 		MovieAdapter adapter = new MovieAdapter(this, R.layout.movie_list, movie_List);
 		View button1 = findViewById(R.id.button1);
 		button1.setVisibility(View.GONE);
@@ -170,18 +172,18 @@ public class MainActivity extends ListActivity  {
 	              int position, long id) {
 	        	  
 	        	  // selected item
-	      		String product=movie_List.get(position).getTitle();
+	      		Movies movie=movie_List.get(position);
 	        	  
 	        	  // Launching new Activity on selecting single List Item
 	        	 Intent i = new Intent(getApplicationContext(), SingleMovieDisplay.class);
 	        	  // sending data to new activity
-	        	  i.putExtra("product", product);
+	        	  i.putExtra("movie", (new Gson()).toJson(movie));
 	        	  startActivity(i);
 	        	
 	          }
 	        });
 		
-		
+	        pb.setVisibility(View.INVISIBLE);
 		
 	}
 
