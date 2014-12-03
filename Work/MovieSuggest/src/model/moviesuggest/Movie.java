@@ -3,6 +3,7 @@ package model.moviesuggest;
 
 import java.util.ArrayList;
 import java.util.List;
+import web.moviesuggest.R;
 
 import com.google.gson.annotations.SerializedName;
 

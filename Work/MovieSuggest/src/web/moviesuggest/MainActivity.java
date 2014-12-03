@@ -10,6 +10,7 @@ import model.moviesuggest.MovieAdapter;
 import resource.moviesuggest.Api;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -17,7 +18,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -158,6 +162,27 @@ public class MainActivity extends ListActivity  {
 		View searchbox = findViewById(R.id.searchbox);
 		searchbox.setVisibility(View.GONE);
 		setListAdapter(adapter);
+		ListView lv = getListView();
+
+	        // listening to single list item on click
+	        lv.setOnItemClickListener(new OnItemClickListener(){
+	          public void onItemClick(AdapterView<?> parent, View view,
+	              int position, long id) {
+	        	  
+	        	  // selected item
+	      		String product=movie_List.get(position).getTitle();
+	        	  
+	        	  // Launching new Activity on selecting single List Item
+	        	 Intent i = new Intent(getApplicationContext(), SingleMovieDisplay.class);
+	        	  // sending data to new activity
+	        	  i.putExtra("product", product);
+	        	  startActivity(i);
+	        	
+	          }
+	        });
+		
+		
+		
 	}
 
 	public void DisplayMovieList(ArrayList<Movies> movieList) {

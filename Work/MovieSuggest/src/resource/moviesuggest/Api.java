@@ -1,5 +1,7 @@
 package resource.moviesuggest;
 
+import web.moviesuggest.R;
+
 public class Api {
 
 	public static String movieSearchapi = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=[api_key]&q=[query]&page_limit=[pagelimit]";

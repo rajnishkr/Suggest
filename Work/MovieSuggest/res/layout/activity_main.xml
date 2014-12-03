@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp"
         android:onClick="onClickSearch"
-        android:text="Suggest" />
+        android:text="@string/Search" />
 
     <EditText
         android:id="@+id/searchbox"
@@ -24,8 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:ems="10"
-        android:text="Enter Movie Name">
-
+        android:text="@string/welcomeText">
         <requestFocus />
     </EditText>
  
