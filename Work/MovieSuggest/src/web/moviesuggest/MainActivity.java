@@ -126,9 +126,16 @@ public class MainActivity extends ListActivity  {
 				if (tasks.size() == 0) {
 					pb.setVisibility(View.INVISIBLE);
 				}
-				if (movieList == null) {
+				if (movieList == null ) {
 					Toast.makeText(MainActivity.this,
 							"No movie is avialable with this Name or Please the Check Internet Connection", Toast.LENGTH_LONG)
+							.show();
+					return;
+				}
+				
+				if (movieList.size()==0 ) {
+					Toast.makeText(MainActivity.this,
+							"No movie is avialable with this Name", Toast.LENGTH_LONG)
 							.show();
 					return;
 				}

@@ -2,8 +2,10 @@ package web.moviesuggest;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class HttpRequest {
 	
@@ -13,7 +15,15 @@ public class HttpRequest {
      {
     	 urlString=urlString.replace("[api_key]", apiKey);
     	 urlString=urlString.replace("[id]", id);
-    	 urlString= urlString.replace("[query]", query);
+    	 String encodedQuery = null;
+
+			try {
+				encodedQuery = URLEncoder.encode(query, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				System.out.println("Error while encoding");
+			   
+			}
+    	 urlString= urlString.replace("[query]", encodedQuery);
     	 urlString=urlString.replace("[pagelimit]", "10");
          URL url;
          HttpURLConnection urlConnection = null;
