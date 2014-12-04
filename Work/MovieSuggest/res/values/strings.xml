@@ -8,5 +8,6 @@
     <string name="welcomeText">rambo</string>
     <string name="Search">Search</string>
     <string name="title_activity_single_movie_display">Movie Details</string>
+    <string name="title_activity_list">Movie List</string>
 
 </resources>

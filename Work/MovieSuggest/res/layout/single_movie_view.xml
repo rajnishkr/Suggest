@@ -1,7 +1,8 @@
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content" 
+    android:background="@color/cyan">
    <ImageView
         android:id="@+id/singleImage"
         android:layout_width="80dp"
@@ -21,6 +22,20 @@
         android:layout_centerVertical="true"
         android:text="@string/movie_name_placeholder"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/movie_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/singleImage"
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+     <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+    
 
 </RelativeLayout>
-

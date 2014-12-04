@@ -9,6 +9,7 @@ import java.util.List;
 
 import model.moviesuggest.Movie.Movies;
 import web.moviesuggest.R;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -21,21 +22,27 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.util.LruCache;
+import android.util.LruCache;
 /**
  * @author kumra32
  * 
  */
+@SuppressLint("NewApi")
 public class MovieAdapter extends ArrayAdapter<Movies> {
 
 	private Context context;
 	private List<Movies> movieList;
-	private LruCache<Integer, Bitmap> imageCache;
+	public static LruCache<Integer, Bitmap> imageCache;
 
 	public MovieAdapter(Context context, int resource, List<Movies> objects) {
 		super(context, resource, objects);
 		this.context = context;
-		this.movieList = objects;		
+		this.movieList = objects;	
+		
+		final int maxMemory = (int)(Runtime.getRuntime().maxMemory() /1024);
+		final int cacheSize = maxMemory / 8;
+		imageCache = new LruCache<>(cacheSize);
 	}
 
 	@Override
@@ -43,7 +50,7 @@ public class MovieAdapter extends ArrayAdapter<Movies> {
 
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.movie_list, parent, false);
+		View view = inflater.inflate(R.layout.activity_list, parent, false);
 
 		// Display movie name in the TextView widget
 		Movies movie = movieList.get(position);
@@ -51,6 +58,19 @@ public class MovieAdapter extends ArrayAdapter<Movies> {
 		tv.setText(movie.getTitle());
 
 		// Display Movie photo in ImageView widget
+		try{
+			
+		int id=Integer.parseInt(movie.getId());
+		Bitmap bitmap = imageCache.get(id);
+		if (bitmap != null) {
+			ImageView image = (ImageView) view.findViewById(R.id.imageView1);
+			image.setImageBitmap(movie.getBitmap());
+		}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Chache Exception");
+		}
 
 		MovieAndView container = new MovieAndView();
 		container.movie = movie;
@@ -81,6 +101,7 @@ public class MovieAdapter extends ArrayAdapter<Movies> {
 				String imageUrl = movie.getPosters().getDetailed();
 				InputStream in = (InputStream) new URL(imageUrl).getContent();
 				Bitmap bitmap = BitmapFactory.decodeStream(in);
+				movie.setBitmap(bitmap);
 				in.close();
 				container.bitmap = bitmap;
 				return container;
@@ -96,7 +117,17 @@ public class MovieAdapter extends ArrayAdapter<Movies> {
 			ImageView image = (ImageView) result.view
 					.findViewById(R.id.imageView1);
 			image.setImageBitmap(result.bitmap);
-		}
+			result.movie.setBitmap(result.bitmap);
+			try{
+				
+				int id=Integer.parseInt(result.movie.getId());
+				imageCache.put(id, result.bitmap);
+			}
+			catch(Exception e){
+				
+				System.out.println("Chache Exception");
+			}
+		}	
 
 	}
 
