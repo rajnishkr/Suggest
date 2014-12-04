@@ -1,6 +1,5 @@
 package resource.moviesuggest;
 
-import web.moviesuggest.R;
 
 public class Api {
 

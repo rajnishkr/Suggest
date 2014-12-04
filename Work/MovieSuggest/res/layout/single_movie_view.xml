@@ -23,14 +23,22 @@
         android:text="@string/movie_name_placeholder"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     
-    <TextView
-        android:id="@+id/movie_detail"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/singleImage"
+        android:layout_centerHorizontal="true"
+        android:background="@color/blue"
+        android:onClick="onClickSuggest"
+        android:text="@string/Suggest"
+        android:layout_below="@+id/movie_lable" />
+     <ProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
      <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"

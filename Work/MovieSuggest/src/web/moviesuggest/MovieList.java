@@ -1,11 +1,7 @@
 package web.moviesuggest;
 
-import model.moviesuggest.MovieAdapter;
 import model.moviesuggest.Movie.Movies;
-
-import com.google.gson.Gson;
-
-import android.support.v7.app.ActionBarActivity;
+import model.moviesuggest.MovieAdapter;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 public class MovieList extends ListActivity {
 
@@ -40,18 +36,19 @@ public class MovieList extends ListActivity {
 
 				// selected item
 				Movies movie = MainActivity.movie_List.get(position);
-
 				// Launching new Activity on selecting single List Item
 				Intent i = new Intent(getApplicationContext(),
 						SingleMovieDisplay.class);
 				// sending data to new activity
-				i.putExtra("movie", (new Gson()).toJson(movie));
+				i.putExtra("movie_id", movie.getId());
 				startActivity(i);
 
 			}
 		});
 
 	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,4 +68,7 @@ public class MovieList extends ListActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
+	
 }

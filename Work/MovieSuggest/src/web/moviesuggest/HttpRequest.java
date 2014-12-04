@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import model.moviesuggest.Movie.Movies;
+
 public class HttpRequest {
 	
 	 
@@ -53,5 +55,6 @@ public class HttpRequest {
 		}
         return "Error";
      }
+	
 
 }

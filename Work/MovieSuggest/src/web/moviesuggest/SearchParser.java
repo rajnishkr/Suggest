@@ -197,7 +197,21 @@ public class SearchParser {
 		}
 		
 		
-		
+		//extracting genre
+		try{
+			JSONArray genre = new JSONArray(obj.getString("genres"));
+			List<String> genreList = new ArrayList<String>();
+			
+			for (int j = 0; j < genre.length(); j++) {
+				genreList.add(genre.getString(j));
+
+			}
+			movies.setGenres(genreList);
+			}
+			catch(JSONException e){
+				System.out.println("couldnot extract abridged_cast");
+				//castList=null;
+			}
 		
 		//extracting release date
 		try{

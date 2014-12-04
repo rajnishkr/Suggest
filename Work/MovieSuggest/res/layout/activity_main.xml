@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="70dp"
         android:background="@color/white"
         android:onClick="onClickSearch"
         android:text="@string/Search" />
@@ -32,20 +32,12 @@
         <requestFocus />
     </EditText>
 
-    <!--
-        <TextView
-        android:id="@+id/textView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:text="" />
-    -->
-
+   
     <ProgressBar
         android:id="@+id/progressBar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
+        android:layout_centerVertical="true"
         android:layout_centerInParent="true"
         android:visibility="invisible" />
 

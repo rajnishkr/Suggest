@@ -1,8 +1,6 @@
 package model.moviesuggest;
 
-import java.util.ArrayList;
 import java.util.List;
-import web.moviesuggest.R;
 
 import android.graphics.Bitmap;
 
@@ -133,17 +131,17 @@ public class Movie {
 
 		public static class Abridged_cast {
 			@SerializedName("characters")
-			private List characters;
+			private List<String> characters;
 			@SerializedName("id")
 			private String id;
 			@SerializedName("name")
 			private String name;
 
-			public List getCharacters() {
+			public List<String> getCharacters() {
 				return this.characters;
 			}
 
-			public void setCharacters(List characters) {
+			public void setCharacters(List<String> characters) {
 				this.characters = characters;
 			}
 
