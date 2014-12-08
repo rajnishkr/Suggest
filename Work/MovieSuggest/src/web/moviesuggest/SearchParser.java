@@ -25,7 +25,12 @@ public class SearchParser {
 			List<Movie.Movies> movie_List = new ArrayList<Movie.Movies>();
 			JSONObject reader = new JSONObject(content);
 			//getting total
+			try{
 			movie.setTotal(reader.getInt("total"));
+			}
+			catch (JSONException e) {
+				System.out.println("couldnot extract total");
+			}
 			JSONArray movieList = new JSONArray(reader.getString("movies"));
 			
 			

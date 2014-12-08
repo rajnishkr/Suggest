@@ -1,49 +1,53 @@
-<RelativeLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" 
-    android:background="@color/cyan">
-   <ImageView
+    android:layout_height="wrap_content"
+    android:background="@color/darkGray"
+    android:fillViewport="true" >
+
+    <ImageView
         android:id="@+id/singleImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:contentDescription="@string/movie_name_placeholder"/>
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/movie_name_placeholder" />
 
     <TextView
         android:id="@+id/movie_lable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/singleImage"
-        android:layout_centerVertical="true"
         android:text="@string/movie_name_placeholder"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/movie_lable"
         android:layout_centerHorizontal="true"
-        android:background="@color/blue"
+        android:background="@color/darkerGray"
         android:onClick="onClickSuggest"
         android:text="@string/Suggest"
-        android:layout_below="@+id/movie_lable" />
-     <ProgressBar
+        android:textSize="18dp" />
+
+    <ProgressBar
         android:id="@+id/progressBar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
         android:visibility="invisible" />
-     <ListView
+
+    <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:fillViewport="true" >
     </ListView>
-    
 
 </RelativeLayout>

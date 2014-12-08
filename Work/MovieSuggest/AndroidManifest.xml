@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="16"
         android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -26,7 +26,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:theme="@android:style/Theme.Holo.Light"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +37,8 @@
         <activity
             android:name=".SingleMovieDisplay"
             android:label="@string/title_activity_single_movie_display"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar.MinWidth" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="web.moviesuggest.ListActivity" />
@@ -44,7 +46,26 @@
         <activity
             android:name=".MovieList"
             android:label="@string/title_activity_list"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="web.moviesuggest.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SuggestList"
+            android:label="@string/title_activity_suggest_list"
+            android:parentActivityName=".MovieList"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="web.moviesuggest.MovieList" />
+        </activity>
+        <activity
+            android:name=".AboutUs"
+            android:label="@string/title_activity_about_us"
+            android:parentActivityName=".MainActivity"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar.MinWidth" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="web.moviesuggest.MainActivity" />

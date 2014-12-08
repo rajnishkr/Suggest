@@ -7,6 +7,7 @@
     <color name="gray">#999966</color>
     <color name="cyan">#33cccc</color>
     <color name="white">#FFFFFF</color>
-    
-
+    <color name="pink">#c974c9</color>
+    <color name="darkGray">#726d72</color>
+	<color name="darkerGray">#585558</color>
 </resources>

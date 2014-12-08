@@ -87,7 +87,7 @@ public class MainActivity extends ListActivity {
 		}
 	}
 
-	class myAsync extends AsyncTask<String, String, ArrayList<Movies>> {
+	class  myAsync extends AsyncTask<String, String, ArrayList<Movies>> {
 		EditText display = null;
 
 		protected void onPreExecute() {
@@ -192,6 +192,13 @@ public class MainActivity extends ListActivity {
 		String query = movie.getText().toString();
 		myAsync async = new myAsync();
 		async.execute(query, Api.movieSearchapi, Api.key, "");
+
+	}
+	
+	public void showAboutUs(MenuItem item){
+		Intent aboutUs = new Intent(getApplicationContext(), AboutUs.class);
+		// sending data to new activity
+		startActivity(aboutUs);
 
 	}
 
